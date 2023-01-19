@@ -1,0 +1,11 @@
+# reloads a given config or defaults to ~/.zshrc if not provided
+if [[ $1 == "" ]]
+then
+    echo "reloading ~/.zshrc config.."
+    source ~/.zshrc
+    echo "reloaded"
+else
+    echo "reloading ${1}.."
+    source $1
+    echo "reloaded"
+fi
