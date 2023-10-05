@@ -1,0 +1,49 @@
+#
+# File Locations
+#
+
+export PROJECTS=$HOME/src
+export DOTFILES=$PROJECTS/dotfiles
+export ZSH=$DOTFILES
+
+# Standard Editor
+export EDIOTR="nano"
+
+# Locale
+export LANG=en_US.UTF-8
+
+# Source .zsh config files
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
+
+# Load path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+    source $file
+done
+
+# Load everything, excluding path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+  source $file
+done
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -Uz compinit
+compinit
+
+# load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}
+do
+  source $file
+done
+
+# Source local settings excluded from dotfiles repo
+if [[ -a $HOME/.localrc ]]
+then
+  source $HOME/.localrc
+fi
+
+source $HOME/.aliases
+
+unset config_files

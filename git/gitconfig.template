@@ -18,7 +18,7 @@
 	branch = auto
 	ui = true
 [code]
-	attributesfile = !${DOT_FILES}/git/attributes
+	attributesfile = !${DOTFILES}/git/attributes
     trustctime = false
     autocrlf = input
 	pager = less -r
