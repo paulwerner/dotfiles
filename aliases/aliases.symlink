@@ -1,0 +1,14 @@
+# navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias x="exit"
+alias c="cd $PROJECTS/$1"
+alias h="cd ~/$1"
+alias la="ls -lah"
+alias ll="ls -lh"
+
+# Kubernetes
+alias mkube='minikube'
+alias kctl='kubectl'
+alias kns='kubens'
+alias kctx='kubectx'
