@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "${ZSH}/script/shared/common.sh"
+source "${ZSH}/scripts/shared/common.sh"
 
 generate_gitconfig() {
     if ! [ -f git/gitconfig.symlink ]
