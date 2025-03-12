@@ -1,0 +1,8 @@
+export-dotenv() {
+    if [ -f .env ]; then
+        export $(grep -v '^#' .env | xargs)
+        echo ".env loaded successfully"
+    else
+        echo "No .env file found. No environment variables loaded."
+    fi
+}

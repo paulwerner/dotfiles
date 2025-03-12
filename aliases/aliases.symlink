@@ -7,6 +7,9 @@ alias h="cd ~/$1"
 alias la="ls -lah"
 alias ll="ls -lh"
 
+# custom navigation
+alias gh="cd ~/src/github"
+
 # Kubernetes
 alias mkube='minikube'
 alias kctl='kubectl'

@@ -12,6 +12,7 @@
 	# Check how the merge of two branches will go:
 	# 	`git dry-merge dev master` to see how merging dev into master will go
 	dry-merge = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
 [color]
 	diff = auto
 	status = auto
@@ -31,3 +32,5 @@
 	protocol = https
 [push]
 	default = simple
+[init]
+	defaultBranch = main
